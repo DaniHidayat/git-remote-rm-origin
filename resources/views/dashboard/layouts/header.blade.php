@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
   <title>ADMINISTRATOR BUKU TAMU | SKM</title>
 
   <!-- Google Font: Source Sans Pro -->
@@ -33,6 +34,10 @@
       <!-- Select2 -->
       <link rel="stylesheet" href="{{asset("assets/adminlte/plugins/select2/css/select2.min.css")}}">
       <link rel="stylesheet" href="{{asset("assets/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css")}}">
+{{-- buuton switch --}}
+<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+<!-- Include Toastr CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

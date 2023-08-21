@@ -7,6 +7,12 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardSurveyController;
 use App\Http\Controllers\DashboardTamuController;
+
+use App\Http\Controllers\DashboardSensorController;
+use App\Http\Controllers\DashboardPompaAirController;
+use App\Http\Controllers\DashboardLaporanController;
+
+
 use App\Http\Controllers\SkmController;
 use App\Http\Controllers\StatistikTamuController;
 use App\Http\Controllers\StatistikSKMController;
@@ -105,7 +111,15 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 Route::GET('/dashboard/categories/checkSlug', [DashboardCategory::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/categories', DashboardCategory::class)->middleware('admin');
 Route::resource('/dashboard/profile', User::class)->middleware('auth');
+
+
+Route::resource('/dashboard/sensor', DashboardSensorController::class)->middleware('auth');
+Route::resource('/dashboard/pompaair', DashboardPompaAirController::class)->middleware('auth');
+Route::resource('/dashboard/laporan', DashboardLaporanController::class)->middleware('auth');
+Route::post('/updateStatus', [DashboardPompaAirController::class, 'updateStatus'])->name('updateStatus');
+Route::get('/checkstatus', [DashboardPompaAirController::class, 'checkStatus'])->name('checkstatus');
 Route::resource('/dashboard/bukutamu', DashboardTamuController::class)->middleware('auth');
+
 Route::post('/bukutamu/update', [DashboardTamuController::class, 'updateTamu'])->middleware('auth');
 Route::resource('/dashboard/surveytamu', DashboardSurveyController::class)->middleware('auth');
 Route::resource('/inbox', InboxController::class);
@@ -113,6 +127,8 @@ Route::resource('/inbox', InboxController::class);
 // Laporan
 Route::post('/dashboard/kunjungan/export_excel', [DashboardTamuController::class, 'export_excel']);
 Route::post('/dashboard/survey/export_excel', [DashboardSurveyController::class, 'export_excel']);
+Route::post('/dashboard/laporansensor/export_excel', [DashboardLaporanController::class, 'export_excel']);
+Route::post('/dashboard/laporansensor/export_pdf', [DashboardLaporanController::class, 'export_pdf']);
 // Kebutuhan untuk Alamat
 Route::get('provinces', 'DependentDropdownController@provinces')->name('provinces');
 Route::get('cities', [DependentDropdownController::class, 'cities'])->name('cities');

@@ -53,6 +53,12 @@
 <!-- Select2 -->
 <script src="{{asset("assets/adminlte/plugins/select2/js/select2.full.min.js")}}"></script>
 <!-- Page specific script -->
+{{-- js swicth --}}
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
+<!-- Include Toastr JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 <script>
     $(function () {
        $('#idallCategory').prop('checked', false);
@@ -61,6 +67,15 @@
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+				$('#example3').DataTable({
             "paging": true,
             "lengthChange": false,
             "searching": true,

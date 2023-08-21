@@ -25,38 +25,36 @@
                     <a href="/dashboard" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Dashboard Buku Tamu
+                            Dashboard
                         </p>
                     </a>
                 </li>
-                @can('admin')
+
                 <li class="nav-item">
-                    <a href="/dashboard/skm" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Dashboard SKM
-                        </p>
-                    </a>
-                </li>
-                @endcan()
-                <li class="nav-item">
-                    <a href="/dashboard/bukutamu" class="nav-link">
+                    <a href="/dashboard/sensor" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
-                            Data Tamu
+                            Data Sensor
                         </p>
                     </a>
                 </li>
-                @can('admin')
-                <li class="nav-item">
-                    <a href="/dashboard/surveytamu" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                            Data Survey
-                        </p>
-                    </a>
-                </li>
-                @endcan()
+								<li class="nav-item">
+									<a href="/dashboard/pompaair" class="nav-link">
+											<i class="nav-icon fas fa-table"></i>
+											<p>
+													Data Pompa Air
+											</p>
+									</a>
+							</li>
+							<li class="nav-item">
+								<a href="/dashboard/laporan" class="nav-link">
+										<i class="nav-icon fas fa-table"></i>
+										<p>
+											Laporan
+										</p>
+								</a>
+						</li>
+
                 <li class="nav-item">
                     <form action="/dashboard/logout" method="POST">
                         @csrf
